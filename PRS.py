@@ -4,17 +4,21 @@ import sys
 
 class PRS:
 
+    def __init__(self, moves = "brak decyzji", move = "brak decyzji"):
+        self._moves = moves
+        self._move = move
+
     # Funkcja do wyboru ruchu przez komputer
     def computer_move(self):
-        moves = ['Papier', 'Kamień', 'Nożyce']
-        return random.choice(moves)
+        self._moves = ['Papier', 'Kamień', 'Nożyce']
+        return random.choice(self._moves)
 
     # Funkcja do pobrania ruchu gracza
     def player_move(self):
         while True:
-            move = input("Wybierz swój ruch - Papier, Kamień, czy Nożyce? ").capitalize()
-            if move in ['Papier', 'Kamień', 'Nożyce']:
-                return move
+            self._move = input("Wybierz swój ruch - Papier, Kamień, czy Nożyce? ").capitalize()
+            if self._move in ['Papier', 'Kamień', 'Nożyce']:
+                return self._move
             else:
                 print("Nieprawidłowy wybór. Spróbuj ponownie.")
 
